@@ -56,3 +56,99 @@ REUSABLES
 .text-center {
     text-align: center;
 }
+
+
+
+/* 
+Variables
+*/
+:root {
+    --calc-bg-color: rgb(16, 16, 16);
+    --calc-txt-color: white;
+    --funct-btn-clr: rgb(162, 160, 160);
+    --funct-btn-clr-hover: rgb(196, 193, 193);
+    --sign-btn-clr: rgb(255, 126, 34);
+    --sign-btn-clr-hover: rgb(255, 171, 110);
+    --number-btn-clr: rgb(62, 62, 62);
+    --number-btn-clr-hover: rgb(162, 160, 160);
+}
+
+
+
+/* 
+MAIN STYLES
+*/
+main {
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+.calculator {
+    width: 350px;
+    background-color: var(--calc-bg-color);
+    color: var(--calc-txt-color);
+    border-radius: 25px;
+    padding: 1rem;
+    padding-top: 5rem;
+}
+
+.screen {
+    justify-content: flex-end;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+
+.buttons {
+    grid-template-columns: repeat(4, 4fr);
+    justify-items: center;
+    gap: .625rem;
+}
+
+button {
+    border-radius: 50%;
+    padding: 1rem;
+    width: 90%;
+    height: 64.8px;
+    text-align: center;
+    font-size: 1.5rem;
+    transition: .4s;
+}
+
+.functionality {
+    background-color: var(--funct-btn-clr);
+    color: var(--calc-bg-color);
+}
+
+.functionality:hover {
+    background-color: var(--funct-btn-clr-hover);
+}
+
+.sign {
+    background-color: var(--sign-btn-clr);
+}
+
+.sign:hover {
+    background-color: var(--sign-btn-clr-hover);
+}
+
+.sign:focus {
+    background-color: var(--calc-txt-color);
+    color: var(--sign-btn-clr);
+
+}
+
+.number {
+    background-color: var(--number-btn-clr);
+}
+
+.number:hover {
+    background-color: var(--number-btn-clr-hover);
+}
+
+.span-2 {
+    grid-column: span 2;
+    border-radius: 40px;
+    text-align: start;
+    padding-left: 1.4rem;
+}
