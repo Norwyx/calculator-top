@@ -12,6 +12,7 @@ let secondOperand = ''
 let currentOperation = null
 
 clearBtn.addEventListener('click', clear)
+dotBtn.addEventListener('click', appendDecimal)
 
 operatorButtons.forEach(button => {
     button.addEventListener('click', () => console.log('im an operator'))
@@ -29,6 +30,13 @@ function appendNumber (number) {
     else {
         screen.textContent += number
     }
+}
+
+function appendDecimal () {
+    if (screen.textContent.includes('.')) {
+        return
+    }
+    screen.textContent += '.'
 }
 
 function resetScreen () {
