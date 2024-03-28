@@ -15,6 +15,7 @@ let shouldResetScreen = false
 clearBtn.addEventListener('click', clear)
 dotBtn.addEventListener('click', appendDecimal)
 equalsBtn.addEventListener('click', evaluate)
+percentageBtn.addEventListener('click', percentage)
 
 operatorButtons.forEach(button => {
     button.addEventListener('click', () => setOperation(button.textContent))
@@ -71,6 +72,10 @@ function evaluate () {
 
 function roundResult(number) {
     return Math.round(number * 1000) / 1000
+}
+
+function percentage () {
+    screen.textContent = (screen.textContent / 100)
 }
 
 function operate (a, b, operator) {
