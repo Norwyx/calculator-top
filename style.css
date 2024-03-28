@@ -95,8 +95,8 @@ main {
 .screen {
     justify-content: flex-end;
     font-size: 4rem;
-    margin-bottom: 1rem;
-    margin-right: 1rem;
+    margin: 0 1rem 1rem 1.2rem;
+    overflow: hidden;
 }
 
 .buttons {
@@ -143,6 +143,14 @@ button {
 }
 
 .number:hover {
+    background-color: var(--number-btn-clr-hover);
+}
+
+#dot-btn {
+    background-color: var(--number-btn-clr);
+}
+
+#dot-btn:hover {
     background-color: var(--number-btn-clr-hover);
 }
 

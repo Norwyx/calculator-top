@@ -3,7 +3,7 @@ const clearBtn = document.getElementById('clear-btn')
 const signBtn = document.getElementById('sign-btn')
 const percentageBtn = document.getElementById('percentage-btn')
 const equalsBtn = document.getElementById('equal-btn')
-const dotBtn = document.getElementById('point-btn')
+const dotBtn = document.getElementById('dot-btn')
 const operatorButtons = document.querySelectorAll('.sign')
 const numberButtons = document.querySelectorAll('.number')
 
@@ -11,20 +11,35 @@ let firstOperand = ''
 let secondOperand = ''
 let currentOperation = null
 
-function add (a, b) {
-    return a + b
+clearBtn.addEventListener('click', clear)
+
+operatorButtons.forEach(button => {
+    button.addEventListener('click', () => console.log('im an operator'))
+});
+
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => appendNumber(button.textContent))
+});
+
+function appendNumber (number) {
+    if (screen.textContent === '0') {
+        resetScreen()
+        screen.textContent = number
+    }
+    else {
+        screen.textContent += number
+    }
 }
 
-function subtract (a, b) {
-    return a - b
+function resetScreen () {
+    screen.textContent = ''
 }
 
-function multiply (a, b) {
-    return a * b
-}
-
-function divide (a, b) {
-    return a / b
+function clear () {
+    screen.textContent = '0'
+    firstOperand = ''
+    secondOperand = ''
+    currentOperation = null
 }
 
 function operate (a, b, operator) {
@@ -43,4 +58,20 @@ function operate (a, b, operator) {
         default:
             return null
     }
+}
+
+function add (a, b) {
+    return a + b
+}
+
+function subtract (a, b) {
+    return a - b
+}
+
+function multiply (a, b) {
+    return a * b
+}
+
+function divide (a, b) {
+    return a / b
 }
