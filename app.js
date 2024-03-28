@@ -10,12 +10,14 @@ const numberButtons = document.querySelectorAll('.number')
 let firstOperand = ''
 let secondOperand = ''
 let currentOperation = null
+let shouldResetScreen = false
 
 clearBtn.addEventListener('click', clear)
 dotBtn.addEventListener('click', appendDecimal)
+equalsBtn.addEventListener('click', evaluate)
 
 operatorButtons.forEach(button => {
-    button.addEventListener('click', () => console.log('im an operator'))
+    button.addEventListener('click', () => setOperation(button.textContent))
 });
 
 numberButtons.forEach(button => {
@@ -23,13 +25,10 @@ numberButtons.forEach(button => {
 });
 
 function appendNumber (number) {
-    if (screen.textContent === '0') {
+    if (screen.textContent === '0' || shouldResetScreen) {
         resetScreen()
-        screen.textContent = number
     }
-    else {
-        screen.textContent += number
-    }
+    screen.textContent += number
 }
 
 function appendDecimal () {
@@ -41,6 +40,7 @@ function appendDecimal () {
 
 function resetScreen () {
     screen.textContent = ''
+    shouldResetScreen = false
 }
 
 function clear () {
@@ -48,6 +48,29 @@ function clear () {
     firstOperand = ''
     secondOperand = ''
     currentOperation = null
+}
+
+function setOperation(operator) {
+    if (currentOperation !== null) evaluate()
+    firstOperand = screen.textContent
+    currentOperation = operator
+    screen.textContent = `${firstOperand}`
+    shouldResetScreen = true
+}
+
+function evaluate () {
+    if (currentOperation === null) return
+    if (currentOperation === '÷' && screen.textContent === '0') {
+    alert("You can't divide by 0!")
+    return
+    }
+    secondOperand = screen.textContent
+    screen.textContent = roundResult(operate(firstOperand, secondOperand, currentOperation))
+    currentOperation = null
+}
+
+function roundResult(number) {
+    return Math.round(number * 1000) / 1000
 }
 
 function operate (a, b, operator) {

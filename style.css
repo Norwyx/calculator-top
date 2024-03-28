@@ -135,7 +135,6 @@ button {
 .sign:focus {
     background-color: var(--calc-txt-color);
     color: var(--sign-btn-clr);
-
 }
 
 .number {
@@ -152,6 +151,19 @@ button {
 
 #dot-btn:hover {
     background-color: var(--number-btn-clr-hover);
+}
+
+#equal-btn {
+    background-color: var(--sign-btn-clr);
+}
+
+#equal-btn:hover {
+    background-color: var(--sign-btn-clr-hover);
+}
+
+#equal-btn:focus {
+    background-color: var(--calc-txt-color);
+    color: var(--sign-btn-clr);
 }
 
 .span-2 {
