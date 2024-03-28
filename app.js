@@ -16,6 +16,7 @@ clearBtn.addEventListener('click', clear)
 dotBtn.addEventListener('click', appendDecimal)
 equalsBtn.addEventListener('click', evaluate)
 percentageBtn.addEventListener('click', percentage)
+signBtn.addEventListener('click', toggleSign)
 
 operatorButtons.forEach(button => {
     button.addEventListener('click', () => setOperation(button.textContent))
@@ -72,6 +73,15 @@ function evaluate () {
 
 function roundResult(number) {
     return Math.round(number * 1000) / 1000
+}
+
+function toggleSign () {
+    if (parseFloat(screen.textContent) > 0) {
+        screen.textContent = parseFloat(screen.textContent) * -1;
+        screen.textContent = screen.textContent.toString();
+    } else if (screen.textContent.includes("-")) {
+        screen.textContent = screen.textContent.substring(1);
+    }
 }
 
 function percentage () {
